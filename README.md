@@ -14,5 +14,16 @@ See below for examples.
     fi
     http-clean
 
+# source lib-sync.sh
+
+    if ! sync-wait 10
+    then
+        echo 'Could not acquire lock within 10 seconds, goodbye.'
+        exit 1
+    fi
+    echo 'Lock acquired...'
+    # ...
+    exit 0
+
 # disclaimer
 Free to use, copy, edit, sell, abuse, I don't care. This software comes with no guarantees/responsibilities.
