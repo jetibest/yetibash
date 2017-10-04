@@ -2,6 +2,14 @@
 Collection of some practical easy-to-use bash libraries to promote faster bash-scripting.
 See below for examples.
 
+# source lib-bash.sh
+
+    # bash-epoch [ms|s]
+    echo "The current epoch in milliseconds is: $(bash-epoch ms)"
+    
+    # bash-trap command [signal]
+    bash-trap 'echo "Goodbye."'
+
 # source lib-http.sh
 
     http-request "http://example.org/..." "param1=val1" param2=val2"
