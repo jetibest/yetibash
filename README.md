@@ -1,6 +1,14 @@
 # yetibash
 Collection of some practical easy-to-use bash libraries to promote faster bash-scripting.
-See below for examples.
+
+You need to use the 'source' command in bash to import the functions from one of the libraries so that it can be used in your current shell and all subshells. Abstract example usage:
+
+    #!/bin/bash
+    source /path/to/library/lib-name.sh
+    # Now use the library, all functions in it will _always_ start with the name of the library
+    name-somefunction with args
+
+Examples per library follow.
 
 # source lib-bash.sh
 
