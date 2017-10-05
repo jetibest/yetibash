@@ -8,7 +8,9 @@ You need to use the 'source' command in bash to import the functions from one of
     # Now use the library, all functions in it will _always_ start with the name of the library
     name-somefunction with args
 
-Examples per library follow.
+# install
+
+    git clone https://github.com/jetibest/yetibash && echo "source '$(pwd)/yetibash/scripts/lib.sh'" >> ~/.bashrc
 
 # source lib-bash.sh
 
