@@ -11,7 +11,6 @@ ssh-help()
 {
 	topic="$1"
 	
-	
 	if [[ "$topic" == "ssh-open" ]]
 	then
 		echo "ssh-open [-sop] [user@]host[:port]"
@@ -47,7 +46,7 @@ ssh-help()
 		echo "        You might need '--protocol=29' to support older rsync."
 		echo "    source"
 		echo "        Trailing slash to prevent creating source directory in target."
-	elif [[ "$topic" == "ssh-exec []" ]]
+	elif [[ "$topic" == "ssh-exec" ]]
 	then
 		echo "ssh-exec [-so] command [command-args]"
 		echo "    Execute a command on the remote connection."
@@ -89,8 +88,11 @@ ssh-help()
 		
 		echo "Use the 'source' command in bash to include this script to use the commands below:"
 		ssh-help ssh-open
-		ssh-help ssh-rsync
+		ssh-help ssh-session-id
+		ssh-help ssh-rsync-get
+		ssh-help ssh-rsync-put
 		ssh-help ssh-exec
+		ssh-help ssh-socket-info
 		ssh-help ssh-close
 	fi
 }
