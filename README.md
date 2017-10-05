@@ -22,6 +22,20 @@ See below for examples.
     fi
     http-clean
 
+# source lib-ssh.sh
+
+    if ssh-open user@example.org
+    then
+        if ssh-exec script.sh
+        then
+            ssh-rsync-put -aH /local/directory/ /remote/directory/
+            ssh-rsync-get -aH /some/remote/directory/ /some/other/local/directory/
+        fi
+    else
+        echo 'Could not connect.'
+    fi
+    ssh-close
+
 # source lib-sync.sh
 
     if ! sync-wait 10
