@@ -12,6 +12,10 @@ You need to use the 'source' command in bash to import the functions from one of
 
     git clone https://github.com/jetibest/yetibash && echo "source '$(pwd)/yetibash/scripts/lib.sh'" >> ~/.bashrc
 
+# update
+
+    cd yetibash && git pull
+
 # source lib-bash.sh
 
     # bash-epoch [ms|s]
