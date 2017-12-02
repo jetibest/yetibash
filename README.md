@@ -1,5 +1,5 @@
 # yetibash
-Collection of some practical easy-to-use bash libraries to promote faster bash-scripting.
+Collection of some practical easy-to-use bash-wrappers to promote faster bash-scripting.
 
 You need to use the 'source' command in bash to import the functions from one of the libraries so that it can be used in your current shell and all subshells. Abstract example usage:
 
@@ -10,11 +10,19 @@ You need to use the 'source' command in bash to import the functions from one of
 
 # install
 
-    git clone https://github.com/jetibest/yetibash && echo "source '$(pwd)/yetibash/scripts/lib.sh'" >> ~/.bashrc
+    cd /usr/local/share && git clone https://github.com/jetibest/yetibash && echo "source '$(pwd)/yetibash/scripts/lib.sh'" >> ~/.bashrc
 
 # update
 
     cd yetibash && git pull
+
+# source lib-archive.sh
+
+    # archive-extract [filename]
+    archive-extract myfiles.zip
+    
+    # archive-compress [directory|file]
+    archive-compress mydirectory
 
 # source lib-bash.sh
 
@@ -23,6 +31,11 @@ You need to use the 'source' command in bash to import the functions from one of
     
     # bash-trap command [signal]
     bash-trap 'echo "Goodbye."'
+
+# source lib-calc.sh
+
+    # calc-math [expression]
+    calc-math -r 'log(5)/0.2' #= 8
 
 # source lib-http.sh
 
@@ -50,6 +63,13 @@ You need to use the 'source' command in bash to import the functions from one of
     fi
     ssh-close
 
+# source lib-subs.sh
+
+    # subs-shift [ms] [filename]
+    subs-shift -54000 subs/en.srt
+    
+    # writes fixed subtitles file to subs/en.shift.srt
+
 # source lib-sync.sh
 
     if ! sync-wait 10
@@ -60,6 +80,20 @@ You need to use the 'source' command in bash to import the functions from one of
     echo 'Lock acquired...'
     # ...
     exit 0
+
+# source lib-tcp.sh
+
+    # raw HTTP GET-request
+    if tcp-connect example.com 80
+    then
+        tcp-writeline "GET /"
+        while tcp-readline ln
+        do
+            echo -e "$ln"
+        done
+    fi
+    # equivalent "one-liner"
+    tcp-connect example.com 80 && tcp-writeline "GET /" && while tcp-readline;do continue;done
 
 # disclaimer
 Free to use, copy, edit, sell, abuse, I don't care. This software comes with no guarantees/responsibilities.

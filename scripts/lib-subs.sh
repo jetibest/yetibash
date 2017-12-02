@@ -9,6 +9,7 @@ subs-help()
 	then
 		echo "subs-shift [ms] [filename]"
 		echo "    Shift all times of a .srt subtitles-file with the given time in milliseconds."
+		echo "    Writes to a new file: filename.shift.srt, overwrites without confirmation."
 		echo "    May be both positive or negative."
 		echo ""
 		echo "    Usage details:"

@@ -37,6 +37,7 @@ tcp-connect()
 	local tcp_path="/dev/tcp/$hostname/$port"
 	
 	eval "exec $_TCP_FD<>'$tcp_path'"
+	return $?
 }
 tcp-readline()
 {
@@ -67,6 +68,7 @@ tcp-readline()
 	fi
 	
 	read -t $_TCP_TIMEOUT_READLINE -u $_TCP_FD ans
+	local retcode=$?
 	
 	if [ -z "$1" ]
 	then
@@ -77,12 +79,18 @@ tcp-readline()
 		ans="${ans//\'/\'\"\'\"\'}"
 		eval "$1='$ans'"
 	fi
+	
+	return $retcode
 }
 tcp-writeline()
 {
 	echo -e "$@" >&$_TCP_FD
+	
+	return $?
 }
 tcp-close()
 {
 	eval "exec $_TCP_FD<&-"
+	
+	return $?
 }

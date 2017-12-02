@@ -218,7 +218,7 @@ sync-lock()
 		local signal_name="EXIT"
 		#local commands="echo \"\" > \"$_sync_lockfile\""
 		#local commands="sed \"/^$_SYNC_FD\$/d\" \"$fdfile\""
-		local commands="sed \"/^$_SYNC_FD\$/d\" \""$(sync-fdfile)\""
+		local commands="sed \"/^$_SYNC_FD\$/d\" \"$(sync-fdfile)\""
 		_sync-bash-trap "$signal_name" "$commands" 2>/dev/null || trap "eval '$(trap -p | sed -E -e '/.*'"$signal_name"'$/'\!'d' -e 's/^trap -- '"'"'(.*)'"'"' '"$signal_name"'$/\1/')'${commands}" "$signal_name"
 		echo $$ 1>&$_SYNC_FD
 		return 0
