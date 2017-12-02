@@ -1,0 +1,4 @@
+scripts/lib-crypt.sh
+scripts/lib-mail.sh
+scripts/lib-text.sh
+scripts/lib-video.sh
