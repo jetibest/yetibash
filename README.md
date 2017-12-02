@@ -31,6 +31,15 @@ You need to use the 'source' command in bash to import the functions from one of
     
     # bash-trap command [signal]
     bash-trap 'echo "Goodbye."'
+    
+    # bash-avgsysloadpct [time]
+    echo "The average system load over the past 5 minutes is $(bash-avgsysloadpct 5m)%"
+    
+    # bash-memusagepct [mode]
+    echo "The current RAM-memory usage is $(bash-memusagepct memory)%"
+    
+    # bash-cpuusagepct [duration]
+    echo "The current CPU usage is $(bash-cpuusagepct)%"
 
 # source lib-calc.sh
 
