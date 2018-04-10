@@ -62,7 +62,8 @@ then
 		exit
 	fi
 
-	grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub
+        grub-install --target=x86_64-efi --efi-directory=/boot --removable
+	#grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub -> somehow EFI does not appear
 	grub-mkconfig -o /boot/grub/grub.cfg
 
 	echo "Finalizing with mkinitcpio -p linux..."
