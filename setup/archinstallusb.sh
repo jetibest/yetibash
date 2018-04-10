@@ -181,11 +181,6 @@ then
 	echo "error: Could not mount boot partition on /mnt/boot."
 fi
 
-mount --bind /proc /mnt/proc
-mount --bind /sys /mnt/sys
-mount --bind /dev /mnt/dev
-mount --bind /dev/pts /mnt/dev/pts
-
 # Problem is, after chroot, we need to do more commands
 
 cp -f "$(realpath $0)" /mnt/root/archinstallusb.sh
@@ -194,6 +189,15 @@ chrootcmd="chroot"
 if which arch-chroot
 then
   chrootcmd="arch-chroot"
+  umount /mnt/proc
+  umount /mnt/sys
+  umount /mnt/dev
+  umount /mnt/dev/pts
+else
+  mount --bind /proc /mnt/proc
+  mount --bind /sys /mnt/sys
+  mount --bind /dev /mnt/dev
+  mount --bind /dev/pts /mnt/dev/pts
 fi
 if ! $chrootcmd /mnt /bin/bash -c "/root/archinstallusb.sh '$1' 'chroot'"
 then
