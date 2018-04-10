@@ -82,6 +82,11 @@ then
 	exit
 fi
 
+if which pacman
+then
+  pacman --needed -Sy arch-install-scripts
+fi
+
 if [[ "$SKIP_TO" != "chroot" ]]
 then
 
