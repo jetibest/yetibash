@@ -414,7 +414,7 @@ ssh-rsync-get()
 	local sourcepath="$1"
 	local targetpath="$2"
 	
-	rsync $params -e "ssh $options $(ssh-socket-info portparam "$info_file") -o ControlPath=$(ssh-socket-info socket "$info_file")" --protocol=29 "$(ssh-socket-info userhostparam "$info_file"):$sourcepath" "$targetpath"
+	rsync ${params[@]} -e "ssh $options $(ssh-socket-info portparam "$info_file") -o ControlPath=$(ssh-socket-info socket "$info_file")" --protocol=29 "$(ssh-socket-info userhostparam "$info_file"):$sourcepath" "$targetpath"
 }
 ssh-rsync-put()
 {
@@ -459,7 +459,7 @@ ssh-rsync-put()
 	local sourcepath="$1"
 	local targetpath="$2"
 	
-	rsync $params -e "ssh $options $(ssh-socket-info portparam "$info_file") -o ControlPath=$(ssh-socket-info socket "$info_file")" --protocol=29 "$sourcepath" "$(ssh-socket-info userhostparam "$info_file"):$targetpath"
+	rsync ${params[@]} -e "ssh $options $(ssh-socket-info portparam "$info_file") -o ControlPath=$(ssh-socket-info socket "$info_file")" --protocol=29 "$sourcepath" "$(ssh-socket-info userhostparam "$info_file"):$targetpath"
 }
 ssh-exec()
 {
